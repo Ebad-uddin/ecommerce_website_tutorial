@@ -3,6 +3,7 @@ include('config.php');
 
 
 if(isset($_POST['addproduct'])){
+    $pid = $_POST['p_id'];
     $prod_cat = mysqli_real_escape_string($connection, $_POST['p_cat']);
     $prod_name = mysqli_real_escape_string($connection, $_POST['pname']);
     $prod_desc = mysqli_real_escape_string($connection, $_POST['pdesc']);
@@ -20,7 +21,7 @@ if(isset($_POST['addproduct'])){
         </script>";
     }else{
         move_uploaded_file($prod_image_tmp, 'uploads/' . $prod_image_name);
-        $insert = mysqli_query($connection, "INSERT INTO `product` (`pid`,`p_cat`, `pname`, `pdesc`, `price`, `pimage`, `psku`, `pcode`, `pstatus`) VALUES (NULL,'$prod_cat', '$prod_name', '$prod_desc', '$prod_price', '$prod_image_name', '$prod_sku', '$prod_code', '1')
+        $insert = mysqli_query($connection, "INSERT INTO `product` (`pid`,`p_cat`, `pname`, `pdesc`, `price`, `pimage`, `psku`, `pcode`, `pstatus`) VALUES ('$pid','$prod_cat', '$prod_name', '$prod_desc', '$prod_price', '$prod_image_name', '$prod_sku', '$prod_code', '1') ON DUPLICATE KEY UPDATE `p_cat` = '$prod_cat',  `pname` = '$prod_name', `pdesc` = '$prod_desc', `price` = '$prod_price', `pimage` = '$prod_image_name', `psku` = '$prod_sku'
         ");
         if($insert){
             echo "<script>

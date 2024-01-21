@@ -64,21 +64,21 @@ if(isset($_POST['register'])){
                 <form action="register.php" method="POST">
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="text" name="name" class="form-control" id="name" aria-describedby="textHelp">
                   </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <select name="role" class="form-select" aria-label="Default select example">
+                    <label for="exampleInputPassword1" class="form-label">Role</label>
+                    <select name="role" id="role" class="form-select" aria-label="Default select example">
                     <option selected>Select Role</option>
-                    <option value="1">Admin</option>
+                    <option value="1">Employee</option>
                     <option value="2">User</option>
                     </select>
                   </div>

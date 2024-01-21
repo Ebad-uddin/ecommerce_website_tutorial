@@ -90,17 +90,18 @@ include ('config.php');
                     </div>
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Name</label>
-                    <input type="text" name="pname" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <input type="hidden" name="p_id" class="form-control" id="p_id" aria-describedby="textHelp">
+                    <input type="text" name="pname" class="form-control" id="pname" aria-describedby="textHelp">
                   </div>
                   <div class="mb-3">
                       <label for="floatingTextarea">Description</label>
                     <div class="form-floating">
-                    <textarea class="form-control" name="pdesc" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                    <textarea class="form-control" name="pdesc" placeholder="Leave a comment here" id="pdesc"></textarea>
                     </div>
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Price</label>
-                    <input type="text" name="price" class="form-control" id="exampleInputPassword1">
+                    <input type="text" name="price" class="form-control" id="price">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Image</label>
@@ -108,13 +109,13 @@ include ('config.php');
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">SKU</label>
-                    <input type="text" name="sku" class="form-control">
+                    <input type="text" name="sku" id="sku" class="form-control">
                   </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Product Code</label>
-                    <input type="text" name="pcode" class="form-control">
+                    <input type="text" name="pcode"  class="form-control">
                   </div>
-                  <input type="submit" name="addproduct" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Add Product">
+                  <input type="submit" name="addproduct" id="addproduct" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Add Product">
                   
                  
                 </form>
@@ -147,6 +148,7 @@ include ('config.php');
                 <th scope="col">Image</th>
                 <th scope="col">SKU</th>
                 <th scope="col">product Code</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -166,6 +168,11 @@ include ('config.php');
                 <td><img src="<?php echo 'uploads/'. $data['pimage'] ?>" alt="<?php echo $data['pimage'] ?>" height="70px" width="70px"></td>
                 <td><?php echo $data['psku'] ?></td>
                 <td><?php echo $data['pcode'] ?></td>
+                <td>
+                  <a href="" class="btn btn-primary edit" data-id="<?php echo $data['pid'] ?>">Edit</a>
+                  <a href="" class="btn btn-danger delete" data-id="<?php echo $data['pid'] ?>">Delete</a>
+                </td>
+
                 
             </tr>
             
@@ -189,3 +196,4 @@ include ('config.php');
 include ("includes/footer.php");
 
 ?>
+<script src="./user.js"></script>
